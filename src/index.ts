@@ -87,6 +87,14 @@ deleteTask(id: number): boolean {
     return true;
 }
 
+unassignTask(taskId: number): boolean {
+  const task = this.getTask(taskId);
+  if (!task || task.assignedUserId === null) return false;
+  task.assignedUserId = null;
+  return true;
+}
+
+
 getTasksByUser(userId: number): Task[] {
   return this.tasks.filter(task => task.assignedUserId === userId);
 }
@@ -96,21 +104,21 @@ getTasksByUser(userId: number): Task[] {
 
 const manager = new UserTaskManager();
 
-const user1 = manager.createUser("Alice", "alice@example.com");
-const user2 = manager.createUser("Bob", "bob@example.com");
-console.log("Created Users:", user1, user2);
+const user1 = manager.createUser("Jane", "janedoe@gmail.com");
+const user2 = manager.createUser("John", "johndoe@gmail.com");
+// console.log("Created Users:", user1, user2);
 
 console.log("Get User 1:", manager.getUser(user1.id));
 
-manager.updateUser(user1.id, "Alicia", "alicia@newmail.com");
+manager.updateUser(user1.id, "Alice", "alice@yahoomail.com");
 console.log("Updated User 1:", manager.getUser(user1.id));
 
 manager.deleteUser(user2.id);
-console.log("Users after deleting Bob:", manager.getUser(user2.id));
+console.log("Users after deleting John:", manager.getUser(user2.id));
 
-const task1 = manager.createTask("Fix bug", "Resolve the issue on login screen");
-const task2 = manager.createTask("Write tests", "Write unit tests for user module");
-console.log("Created Tasks:", task1, task2);
+const task1 = manager.createTask("Wash dishes", "Clean all dishes including the hotpot");
+const task2 = manager.createTask("Familiarise myself with generic", "Get to watch videos, visit repos and read documentation bout generics");
+// console.log("Created Tasks:", task1, task2);
 
 console.log("Get Task 1:", manager.getTask(task1.taskId));
 
@@ -118,7 +126,10 @@ manager.updateTask(task1.taskId, "Fix login bug", "Fix login and registration is
 console.log("Updated Task 1:", manager.getTask(task1.taskId));
 
 manager.assignTaskToUser(task1.taskId, user1.id);
-console.log("Task assigned to Alicia:", manager.getTasksByUser(user1.id));
+console.log("Task assigned to Alice:", manager.getTasksByUser(user1.id));
 
-manager.deleteTask(task2.taskId);
-console.log("Task 2 after deletion:", manager.getTask(task2.taskId)); // Should be undefined
+// manager.unassignTask(task1.taskId, user1.id);
+// console.log("Task unassigned fromAlice:", manager.getTasksByUser(user1.id));
+
+// manager.deleteTask(task2.taskId);
+// console.log("Task 2 after deletion:", manager.getTask(task2.taskId)); 

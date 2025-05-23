@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Task Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <h1>User & Task Management</h1>
+    <div id="feedback" class="feedback"></div>
+
+    <div>
+      <h2>Manage Users</h2>
+      <div class="form-group">
+        <input id="userName" placeholder="Full Name" />
+        <input id="userEmail" placeholder="Email Address" />
+        <button id="createUserBtn">Add User</button>
+      </div>
+      <ul id="userList" class="entity-list"></ul>
+    </div>
+
+    <div>
+      <h2>Manage Tasks</h2>
+      <div class="form-group">
+        <input id="taskTitle" placeholder="Task Title" />
+        <input id="taskDesc" placeholder="Task Description" />
+        <button id="createTaskBtn">Add Task</button>
+      </div>
+      <ul id="taskList" class="entity-list"></ul>
+    </div>
+
+    <div>
+      <h2>Assign or Unassign Tasks</h2>
+      <div class="form-group">
+        <input id="assignTaskId" placeholder="Task ID" />
+        <input id="assignUserId" placeholder="User ID" />
+        <button id="assignBtn">Assign</button>
+        <button id="unassignBtn">Unassign</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="../dist/index.js"></script>
+</body>
+</html>

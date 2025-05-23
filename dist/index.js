@@ -95,29 +95,6 @@ class UserTaskManager {
     }
 }
 const manager = new UserTaskManager();
-// const user1 = manager.createUser("Jane", "janedoe@gmail.com");
-// const user2 = manager.createUser("John", "johndoe@gmail.com");
-// console.log("Created Users:", user1, user2);
-// console.log("Get User 1:", manager.getUser(user1.id));
-// manager.updateUser(user1.id, "Alice", "alice@yahoomail.com");
-// console.log("Updated User 1:", manager.getUser(user1.id));
-// manager.deleteUser(user2.id);
-// console.log("Users after deleting John:", manager.getUser(user2.id));
-// const task1 = manager.createTask("Wash dishes", "Clean all dishes including the hotpot");
-// const task2 = manager.createTask("Familiarise myself with generic", "Get to watch videos, visit repos and read documentation bout generics");
-// console.log("Created Tasks:", task1, task2);
-// console.log("Get Task 1:", manager.getTask(task1.taskId));
-// manager.updateTask(task1.taskId, "Fix login bug", "Fix login and registration issues");
-// console.log("Updated Task 1:", manager.getTask(task1.taskId));
-// manager.assignTaskToUser(task1.taskId, user1.id);
-// console.log("Task assigned to Alice:", manager.getTasksByUser(user1.id));
-// manager.unassignTask(task1.taskId, user1.id);
-// console.log("Task unassigned fromAlice:", manager.getTasksByUser(user1.id));
-// manager.deleteTask(task2.taskId);
-// console.log("Task 2 after deletion:", manager.getTask(task2.taskId)); 
-
-
-
 const $ = id => document.getElementById(id);
 
 function showFeedback(message, isError = false) {
